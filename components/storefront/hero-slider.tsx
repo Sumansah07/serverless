@@ -3,8 +3,8 @@
 import * as React from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules"
-import Image from "next/image"
 import Link from "next/link"
+import { proxyImageUrl } from "@/lib/image-proxy"
 
 import "swiper/css"
 import "swiper/css/navigation"
@@ -48,12 +48,10 @@ export function HeroSlider({ banners }: { banners?: Banner[] }) {
                 {slides.map((slide) => (
                     <SwiperSlide key={slide.id}>
                         <div className="relative h-full w-full">
-                            <Image
-                                src={slide.image_url}
+                            <img
+                                src={proxyImageUrl(slide.image_url)}
                                 alt={slide.title}
-                                fill
-                                priority
-                                className="object-cover"
+                                className="h-full w-full object-cover"
                             />
                             <div className="absolute inset-0 bg-black/30" />
                             <div className="absolute inset-0 flex items-center">

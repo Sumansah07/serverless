@@ -9,19 +9,12 @@ const poppins = Poppins({
     variable: "--font-poppins",
 });
 
-import { createClient } from "@/lib/supabase/server";
-
-export async function generateMetadata(): Promise<Metadata> {
-    const supabase = createClient();
-    const { data: settings } = await supabase.from("site_settings").select("*").single();
-
-    return {
-        title: settings?.store_name || "Modern E-commerce Store",
-        description: settings?.store_description || "A premium single-vendor e-commerce platform",
-    };
-}
-
 import { ToastProvider } from "@/components/shared/toast-provider";
+
+export const metadata: Metadata = {
+    title: "Modern E-commerce Store",
+    description: "A premium single-vendor e-commerce platform",
+};
 
 export default function RootLayout({
     children,

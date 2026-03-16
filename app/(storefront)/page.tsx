@@ -4,6 +4,7 @@ import { FeatureMarquee } from "@/components/storefront/feature-marquee"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { createClient } from "@/lib/supabase/server"
+import { proxyImageUrl } from "@/lib/image-proxy"
 
 export default async function StorefrontHome() {
     const supabase = createClient()
@@ -80,7 +81,7 @@ export default async function StorefrontHome() {
                             className={`group relative h-[600px] overflow-hidden rounded-[40px] shadow-2xl ${idx === 1 ? 'md:-translate-y-8' : ''}`}
                         >
                             <img
-                                src={cat.image_url || `https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800`}
+                                src={proxyImageUrl(cat.image_url)}
                                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                 alt={cat.name}
                             />
@@ -113,7 +114,7 @@ export default async function StorefrontHome() {
                 <section className="container mx-auto px-4 py-12">
                     <div className="relative h-[500px] overflow-hidden rounded-[50px] group shadow-2xl">
                         <img
-                            src={secondaryBanners.image_url}
+                            src={proxyImageUrl(secondaryBanners.image_url)}
                             className="h-full w-full object-cover transition-transform duration-[2000ms] group-hover:scale-105"
                             alt={secondaryBanners.title}
                         />

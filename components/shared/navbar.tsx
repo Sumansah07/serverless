@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { useWishlist } from "@/store/use-wishlist";
+import { proxyImageUrl } from "@/lib/image-proxy";
 import { getWishlistIds } from "@/app/actions/wishlist-actions";
 import { useToast } from "@/store/use-toast";
 
@@ -231,7 +232,7 @@ export function Navbar() {
                 {/* Logo */}
                 <Link href="/" className="flex items-center space-x-2">
                     {siteSettings?.logo_type === 'image' && siteSettings.logo_image_url ? (
-                        <img src={siteSettings.logo_image_url} alt={siteSettings.store_name} className="h-8 w-auto object-contain" />
+                        <img src={proxyImageUrl(siteSettings.logo_image_url)} alt={siteSettings.store_name} className="h-8 w-auto object-contain" />
                     ) : (
                         <span className="text-xl font-bold tracking-tight font-lufga uppercase">
                             {siteSettings?.logo_text ? (

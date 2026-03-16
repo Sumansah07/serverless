@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    experimental: {
+        esmExternals: true,
+        serverActions: {
+            allowedOrigins: ['*'],
+        },
+    },
     images: {
         remotePatterns: [
             { protocol: 'https', hostname: 'res.cloudinary.com' },
