@@ -27,8 +27,8 @@ export default function RootLayout({
             <body className={cn("min-h-screen bg-background font-poppins antialiased", poppins.variable)}>
                 {children}
                 <ToastProvider />
-                {/* Bolt Inspector for Design Mode */}
-                <Script src="/bolt-inspector.js" strategy="afterInteractive" />
+                {/* Bolt Inspector for Design Mode - Next.js Enhanced Version v1.1.0 */}
+                <Script src="/bolt-inspector-nextjs.js?v=1.1.0" strategy="afterInteractive" />
             </body>
         </html>
     );
