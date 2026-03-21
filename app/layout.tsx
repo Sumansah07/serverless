@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -26,6 +27,8 @@ export default function RootLayout({
             <body className={cn("min-h-screen bg-background font-poppins antialiased", poppins.variable)}>
                 {children}
                 <ToastProvider />
+                {/* Bolt Inspector for Design Mode */}
+                <Script src="/bolt-inspector.js" strategy="afterInteractive" />
             </body>
         </html>
     );
