@@ -28,7 +28,12 @@ export default function RootLayout({
                 {children}
                 <ToastProvider />
                 {/* Bolt Inspector for Design Mode */}
-                <Script src="/bolt-inspector.js" strategy="afterInteractive" />
+                <Script 
+                    src="/bolt-inspector.js" 
+                    strategy="afterInteractive"
+                    onLoad={() => console.log('[Next.js] Bolt Inspector loaded')}
+                    onError={(e) => console.error('[Next.js] Bolt Inspector failed to load:', e)}
+                />
             </body>
         </html>
     );

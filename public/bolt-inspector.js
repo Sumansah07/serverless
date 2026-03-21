@@ -6,8 +6,8 @@
 if (typeof window !== 'undefined') {
   console.log('[Bolt Inspector] Initializing');
   console.log('[Bolt Inspector] Environment:', {
-    nodeEnv: typeof process !== 'undefined' ? process.env?.NODE_ENV : 'unknown',
-    isDev: typeof import.meta !== 'undefined' ? import.meta.env?.DEV : 'unknown'
+    nodeEnv: 'browser',
+    isDev: true
   });
 
   /**
